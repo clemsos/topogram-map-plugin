@@ -1,0 +1,26 @@
+{
+  "name": "topogram-plugin-map",
+  "version": "0.0.1",
+  "description": "Map layout for Topogram",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/topogram/topogram-plugin-map.git"
+  },
+  "keywords": [
+    "topogram",
+    "map",
+    "network",
+    "leaflet",
+    "dataviz"
+  ],
+  "author": "Clément Renaud <hi@clementrenaud.com> (http://clementrenaud.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/topogram/topogram-plugin-map/issues"
+  },
+  "homepage": "https://github.com/topogram/topogram-plugin-map#readme"
+}
