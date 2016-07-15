@@ -104,16 +104,12 @@ Template.filterByCategory.onRendered( function() {
 
     }
   });
-
-
 })
 
 function getPositions() {
   let pos = {}
   let circles = d3.select("#circles")
     .selectAll('circle')
-
-  console.log(circles);
   circles[0]
     .forEach(function(d){
       if (d) {
@@ -138,7 +134,6 @@ function updateNetwork(network, pos) {
   network.nodes().positions(function(i, node){
     return pos[i]
   })
-  console.log(pos);
 }
 
 
