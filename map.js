@@ -91,22 +91,35 @@ Template.filterByCategory.onRendered( function() {
 
     console.log(network);
     if(points.length && network) {
+
+      // disable network mouse events and zoom
+      $("#network").css({ "pointer-events" : "none" })
+      network.zoomingEnabled( false )
+      map.on("moveend", function(e){
+        updateNetwork(network)
+      })
+
+
+      // (init) place correctly on map
       updateNetwork(network)
 
       // bind events
-      map.on("move", function(e){
-        updateNetwork(network)
-      })
+      // network.on("pan", function(e){
+      //   console.log("pan");
+      //   updateMap()
+      // })
 
-      map.on("zoomend", function(e){
-        updateNetwork(network)
-      })
 
     }
   });
 })
 
-function getPositions() {
+function updateMap() {
+  // console.log('update map');
+  // fitBounds
+}
+
+function getCoordinates() {
   let pos = {}
   let circles = d3.select("#circles")
     .selectAll('circle')
@@ -123,14 +136,8 @@ function getPositions() {
   return pos
 }
 
-function updateNetwork(network, pos) {
-
-  var pos = getPositions()
-  console.log("update cytoscape", pos)
-  // disable network events
-  $("#network").css({ "pointer-events" : "none" })
-  // disable zoom to fake with other means
-  network.zoomingEnabled( false )
+function updateNetwork(network) {
+  var pos = getCoordinates()
   network.nodes().positions(function(i, node){
     return pos[i]
   })
